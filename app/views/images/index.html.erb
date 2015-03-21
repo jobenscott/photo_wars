@@ -1,2 +1,12 @@
-<h1>Images#index</h1>
-<p>Find me in app/views/images/index.html.erb</p>
+<h1> Best Images </h1>
+<%= link_to "Post a new pic!",
+<% @images.each do |img| %>
+  <h2><%= img.title %></h2>
+  <h6><%= img.url %></h6>
+  <h3><%= img.vote %></h3>
+  <p><%= img.description %></p>
+  <p><%= img.user_id %></p>
+  <%= link_to "This image", image_path(img) %>
+  <%= link_to "Edit image", edit_image(img) %>
+  <%= link_to "KILL!!!", img, method: :delete %>
+<% end %>
