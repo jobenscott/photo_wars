@@ -1,6 +1,8 @@
+<div class="container">
 <h1> Image </h1>
 <h2><%= @image.title %></h2>
-<h3><%= @image.url %></h2>
+<h3><%= image_tag @image.url %></h2>
 <p><%= @image.vote %></p>
 <p><%= @image.description %></p>
 <%= link_to 'Back', images_path %>
+</div>

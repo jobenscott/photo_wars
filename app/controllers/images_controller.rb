@@ -2,6 +2,15 @@ class ImagesController < ApplicationController
   
   def index
     @images = Image.all.order(vote: :desc)
+    if params[:categories]
+      @images = Image.where(categories: params[:categories])
+    else
+      @animals_images = Image.all.where(categories: "Animals")
+      @people_images = Image.all.where(categories: "People")
+      @landscape_images = Image.all.where(categories: "Landscapes")
+      @funny_images = Image.all.where(categories: "Funny")
+      @abstract_images = Image.all.where(categories: "Abstract")
+    end
   end
 
   def profile
@@ -12,7 +21,6 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
   end
 
-<<<<<<< HEAD
   def new
     @categories = ["Animals", "People", "Landscapes", "Funny", "Abstract"]
     @image = Image.new
