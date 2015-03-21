@@ -1,0 +1,9 @@
+<h1> Add a new comment </h1>
+<%= bootstrap_form_for (@image, @image.comment.build) do |f| %>
+  <%= f.text_field :body %>
+
+  <%#= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.submit "Send", class: "btn btn-primary" %>
+<% end %>
+

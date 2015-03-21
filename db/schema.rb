@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150321185714) do
-=======
 ActiveRecord::Schema.define(version: 20150321190251) do
->>>>>>> cartervisuals-Ryan/Devise
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +29,6 @@ ActiveRecord::Schema.define(version: 20150321190251) do
     t.integer  "vote"
     t.text     "description"
     t.integer  "user_id"
-<<<<<<< HEAD
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "photo_file_name"
@@ -44,11 +39,7 @@ ActiveRecord::Schema.define(version: 20150321190251) do
     t.string   "url_content_type"
     t.integer  "url_file_size"
     t.datetime "url_updated_at"
-=======
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.string   "categories"
->>>>>>> cartervisuals-Ryan/Devise
   end
 
   create_table "users", force: :cascade do |t|

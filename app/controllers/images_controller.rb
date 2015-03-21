@@ -10,9 +10,9 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+    @comment = @image.comment.build
   end
 
-<<<<<<< HEAD
   def new
     @categories = ["Animals", "People", "Landscapes", "Funny", "Abstract"]
     @image = Image.new

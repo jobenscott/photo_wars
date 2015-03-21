@@ -1,10 +1,12 @@
 <h1> Best Images </h1>
-=======
+
 <div class="container">
   <h1> Best Images </h1>
->>>>>>> 004bb4dd783e1418b0130207d57d7f750617b72b
 <%= link_to "Post a new pic!", new_image_path %>
+
 <% @images.each do |img| %>
+  <div class="row">
+  <div class="col-md-3">  
   <h2><%= img.title %></h2>
   <h6><%= img.url %></h6>
   <h3><%= img.categories %></h3>
@@ -14,5 +16,7 @@
   <%= link_to "This image", image_path(img) %>
   <%= link_to "Edit image", edit_image_path(img) %>
   <%= link_to "KILL!!!", img, method: :delete %>
+  </div>
+  </div>
 <% end %>
 </div>
