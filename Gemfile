@@ -20,6 +20,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 
 group :development, :test do
+  gem 'binding_of_caller'
+  gem 'better_errors'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
