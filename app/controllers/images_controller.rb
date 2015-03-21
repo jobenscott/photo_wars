@@ -12,6 +12,7 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
   end
 
+<<<<<<< HEAD
   def new
     @categories = ["Animals", "People", "Landscapes", "Funny", "Abstract"]
     @image = Image.new
@@ -53,4 +54,5 @@ class ImagesController < ApplicationController
     def image_params
       params.require(:image).permit(:title, :url, :vote, :description, :categories, :user_id)
     end
+
 end
