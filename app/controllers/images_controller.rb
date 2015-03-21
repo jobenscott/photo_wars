@@ -13,10 +13,12 @@ class ImagesController < ApplicationController
   end
 
   def new
+    @categories = ["Animals", "People", "Landscapes", "Funny", "Abstract"]
     @image = Image.new
   end
 
   def create
+    @categories = ["Animals", "People", "Landscapes", "Funny", "Abstract"]
     @image = Image.new(image_params)
 
     if @image.save
@@ -49,6 +51,6 @@ class ImagesController < ApplicationController
   private
 
     def image_params
-      params.require(:image).permit(:title, :url, :vote, :description, :user_id)
+      params.require(:image).permit(:title, :url, :vote, :description, :categories, :user_id)
     end
 end
