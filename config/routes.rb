@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  get 'images/index'
+  root 'images#index'
 
-  get 'images/profile'
+  resources :images
 
-  get 'images/show'
+  # get 'images/profile'
+
+  # get 'images/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
