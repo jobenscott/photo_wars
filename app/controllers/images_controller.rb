@@ -20,7 +20,7 @@ class ImagesController < ApplicationController
     @image = Image.new(image_params)
 
     if @image.save
-      redirect_to image_path
+      redirect_to image_path(@image)
     else
       render :new
     end
@@ -43,7 +43,7 @@ class ImagesController < ApplicationController
   def destroy
     @image = Image.find(params[:id])
     @image.destroy
-    redirect_to posts_path
+    redirect_to images_path
   end
 
   private

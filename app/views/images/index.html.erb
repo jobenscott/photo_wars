@@ -7,6 +7,6 @@
   <p><%= img.description %></p>
   <p><%= img.user_id %></p>
   <%= link_to "This image", image_path(img) %>
-  <%= link_to "Edit image", edit_image(img) %>
+  <%= link_to "Edit image", edit_image_path(img) %>
   <%= link_to "KILL!!!", img, method: :delete %>
 <% end %>
