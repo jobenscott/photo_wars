@@ -1,24 +1,103 @@
-<h1> Best Images </h1>
-
 <div class="container">
+
   <h1> Best Images </h1>
 <%= link_to "Post a new pic!", new_image_path %>
-<%= render 'layouts/category' %>
-<% @images.each_slice(3) do |img| %>
+<%#= render 'layouts/category' %>
+
+
+
+<br>
 <div class="row"> 
-<% img.each do |img| %>
-<div class='col-md-3'>
-  <% if img.categories == "Abstract" %>
-  <h2><%= img.title %></h2>
-  <h6><%= link_to image_tag(img.url), image_path(img) %></h6>
-  <h3><%= img.categories %></h3>
-  <h3><%= img.vote %></h3>
-  <p><%= img.description %></p>
-  <p><%= img.user_id %></p>
-  <% end %>
-  <% end %>
-<% end %>
+<% top_three = @animals_images.sample(3) %>
+
+  <% top_three.each do |img| %>
+    <div class='col-md-3'>
+        <h2><%= img.title %></h2>
+        <h6><%= link_to image_tag(img.url), image_path(img) %></h6>
+        <h3><%= img.categories %></h3>
+        <h3><%= img.vote %></h3>
+        <p><%= img.description %></p>
+        <p><%= img.user_id %></p>
+    </div>
+    <% end %>
+  <%# end %>
+    
+  </div>
+<!--  -->
 </div>
+<br>
+<div class="row"> 
+<% top_three = @people_images.sample(3) %>
+
+  <% top_three.each do |img| %>
+    <div class='col-md-3'>
+        <h2><%= img.title %></h2>
+        <h6><%= link_to image_tag(img.url), image_path(img) %></h6>
+        <h3><%= img.categories %></h3>
+        <h3><%= img.vote %></h3>
+        <p><%= img.description %></p>
+        <p><%= img.user_id %></p>
+    </div>
+    <% end %>
+  <%# end %>
+    
+  </div>
+<!--  -->
 </div>
+<br>
+<div class="row"> 
+<% top_three = @landscape_images.sample(3) %>
+
+  <% top_three.each do |img| %>
+    <div class='col-md-3'>
+        <h2><%= img.title %></h2>
+        <h6><%= link_to image_tag(img.url), image_path(img) %></h6>
+        <h3><%= img.categories %></h3>
+        <h3><%= img.vote %></h3>
+        <p><%= img.description %></p>
+        <p><%= img.user_id %></p>
+    </div>
+    <% end %>
+  <%# end %>
+    
+  </div>
+<!--  -->
+</div>
+<br>
+<div class="row"> 
+<% top_three = @funny_images.sample(3) %>
+
+  <% top_three.each do |img| %>
+    <div class='col-md-3'>
+        <h2><%= img.title %></h2>
+        <h6><%= link_to image_tag(img.url), image_path(img) %></h6>
+        <h3><%= img.categories %></h3>
+        <h3><%= img.vote %></h3>
+        <p><%= img.description %></p>
+        <p><%= img.user_id %></p>
+    </div>
+    <% end %>
+  <%# end %>
+    
+  </div>
+<!--  -->
+</div>
+<br>
+<div class="row"> 
+<% top_three = @abstract_images.sample(3) %>
+
+  <% top_three.each do |img| %>
+    <div class='col-md-3'>
+        <h2><%= img.title %></h2>
+        <h6><%= link_to image_tag(img.url), image_path(img) %></h6>
+        <h3><%= img.categories %></h3>
+        <h3><%= img.vote %></h3>
+        <p><%= img.description %></p>
+        <p><%= img.user_id %></p>
+    </div>
+    <% end %>
+  <%# end %>
+    
+  </div>
 <!--  -->
 </div>
