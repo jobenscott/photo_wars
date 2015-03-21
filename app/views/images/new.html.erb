@@ -1,9 +1,17 @@
+<div class="container">
 <h1> New Picture </h1>
 <%= bootstrap_form_for @image do |f| %>
   
   <%= f.text_field :title %>
 
   <%= f.text_field :url %>
+
+  <%= f.radio_button :categories, "Animals" %>Animals
+  <%= f.radio_button :categories, "People" %>People
+  <%= f.radio_button :categories, "Landscapes" %>Landscapes
+  <%= f.radio_button :categories, "Funny" %>Funny
+  <%= f.radio_button :categories, "Abstract" %>Abstract
+  
 
   <%= f.text_field :vote %>
 
@@ -13,3 +21,4 @@
 
   <%= f.submit "Create Image", class: "btn btn-primary" %>
 <% end %>
+</div>
