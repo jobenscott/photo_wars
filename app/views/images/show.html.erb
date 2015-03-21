@@ -1,2 +1,6 @@
-<h1>Images#show</h1>
-<p>Find me in app/views/images/show.html.erb</p>
+<h1> Image </h1>
+<h2><%= @image.title %></h2>
+<h3><%= @image.url %></h2>
+<p><%= @image.vote %></p>
+<p><%= @image.description %></p>
+<%= link_to 'Back', posts_path %>
