@@ -4,7 +4,7 @@ ruby '2.2.0'
 gem 'devise'
 gem "paperclip", "~> 4.2"
 
-
+gem 'devise'
 gem 'rails', '4.2.0'
 gem 'bootstrap_form'
 gem 'bootstrap-sass',       '3.2.0.0'

@@ -1,41 +1,56 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_image
 
-  before_action :find_image
-
+  def new
+    @comment = @image.comments.build
+  end
 
   def create
-    @comment = @image.comments.new(comments_params)
+    @comment = @image.comments.build(comments_params)
     if @comment.save
-      redirect_to image_path(@image)
+      redirect_to @image
     else
-      render :back
+      render :new
+    end
   end
 
   def edit
-    @comment = Comment.edit(comments_params)
+    @comment = Comment.find(params[:id])
+    if @comment.user != current_user
+      redirect_to @image, notice: "Nope"
+    end
   end
 
   def update
-    @comment = Comment.update(comments_params)
-      redirect_to image_path(@image), :notice = "comment updated"
+    @comment = Comment.find(params[:id])
+    if @comment.update(comments_params)
+      redirect_to @image, notice: "comment updated"
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @comment.destroy
-    redirect_to image_path(@image), :notice = "comment deleted"
+    @comment = Comment.find(params[:id])
+    if @comment.user == current_user
+      @comment.destroy
+      redirect_to @image, notice: "comment deleted"
+    else
+      redirect_to @image, notice: "Nope"
+    end
   end
 
 
   private
 
-  def find_image
-    @image = Image.find(params[:id])
+  def set_image
+    @image = Image.find(params[:image_id])
   end
 
 
   def comments_params
-    params.require(:comment).permit(:body, :image_id)
-    
+    params.require(:comment).permit(:body, :user_id, :image_id)
   end
 
 end

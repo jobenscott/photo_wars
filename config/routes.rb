@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
-
-
-  devise_for :users
   root "images#index"
-  resources :images
 
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  resources :users, only: [:show, :index]
+  get 'profile' => 'users#profile'
+  resources :images do
+    resources :comments, except: [:index, :show]
+  end
+  get 'images/vote/:id', to: "images#vote", as: "images_vote"
+  get 'images/downvote/:id', to: "images#downvote", as: "images_downvote"
+  
 
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

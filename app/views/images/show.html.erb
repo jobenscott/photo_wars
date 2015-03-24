@@ -4,5 +4,35 @@
 <h3><%= image_tag @image.url %></h2>
 <p><%= @image.vote %></p>
 <p><%= @image.description %></p>
-<%= link_to 'Back', images_path %>
+
+<%= link_to 'BACK', images_path, class: "btn btn-default" %>
+<% if @image.user == current_user && user_signed_in? %>
+  <%= link_to "EDIT", edit_image_path(@image), class: "btn btn-info"  %>
+  <%= link_to "DELETE", @image, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"   %>
+<% end %>
+
+
+<%#= @image.title%> <%#= vote_path(@image) %>
+<!-- <h4><%#= link_to @image.url, user_path(@link.user) %></h4> -->
+<%= link_to "UPVOTE", images_vote_path(@image), class: "btn btn-success" %>
+  <%= link_to "DOWNVOTE", images_downvote_path(@image), class: "btn btn-danger" %>
+
+<!-- <h3>Posted by <%#= link_to (@image.user.name, user_path(@image.user) %></h3> -->
+<!-- <h3>Posted by <%#= link_to @image.user.name, user_path(@image.user) %></h3> -->
+<h2>
+  Comments
+  <%= link_to "Add Comment", new_image_comment_path(@image), class: "btn btn-primary" %>
+</h2>
+
+<% @image.comments.each do |comment| %>
+  <blockquote>
+    <p><%= comment.body %></p>
+    <footer><%= comment.user.name %>
+    <% if comment.user == current_user && user_signed_in? %>
+      <%= link_to "EDIT", edit_image_comment_path(@image, comment) %>
+      <%= link_to "DELETE", image_comment_path(@image, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </footer>
+    <% end %>
+  </blockquote>
+<% end %>
 </div>

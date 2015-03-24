@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321195530) do
+ActiveRecord::Schema.define(version: 20150324044638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,20 +21,22 @@ ActiveRecord::Schema.define(version: 20150321195530) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "image_id"
   end
 
   create_table "images", force: :cascade do |t|
     t.string   "title"
-    t.integer  "vote"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "categories"
     t.string   "url_file_name"
     t.string   "url_content_type"
     t.integer  "url_file_size"
     t.datetime "url_updated_at"
+    t.integer  "vote",             default: 0
+    t.string   "image"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,6 +52,8 @@ ActiveRecord::Schema.define(version: 20150321195530) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

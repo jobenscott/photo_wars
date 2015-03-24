@@ -1,4 +1,4 @@
-<div class="">
+<div class="container">
   <h1> Best Images </h1>
 <%= link_to "Post a new pic!", new_image_path %>
 <%#= render 'layouts/category' %>
@@ -6,8 +6,9 @@
 
 
 <br>
+<div class="firstRow">
 <div class="row"> 
-<% top_three = @animals_images.sample(3) %>
+<% top_three = @animals_images.first(3) %>
 
   <% top_three.each do |img| %>
     <div class='col-md-3'>
@@ -17,16 +18,48 @@
         <h3><%= img.vote %></h3>
         <p><%= img.description %></p>
         <p><%= img.user_id %></p>
+        <div class="upvotes">
+        <%= link_to 'UpVote!', images_vote_path(img.id), :class => "btn btn-default btn-lg" %>
+      </div>
+      <div class="downvotes">
+  <%= link_to 'DownVote!', images_downvote_path(img.id), :class => "btn btn-default btn-lg" %>
+</div>
+  <%= link_to "delete", img, method: :delete, :class => "btn btn-default btn-lg" %>
+    </div>
+    <%#= link_to 'Show Post', image_path(img) , :class => "btn anything" %>
+  <%#= link_to 'Edit post', edit_image_path(img), :class => "btn btn-default btn-lg" %>
+  <%#= link_to 'Destroy post', img, method: :delete, :class => "btn btn-default btn-lg" %>
+  
+    <% end %>
+  <%# end %>
+    
+  </div>
+</div>
+<!--  -->
+<br>
+<div class="row"> 
+<% top_three = @people_images.first(3) %>
+
+  <% top_three.each do |img| %>
+    <div class='col-md-3'>
+        <h2><%= img.title %></h2>
+        <h6><%= link_to image_tag(img.url), image_path(img) %></h6>
+        <h3><%= img.categories %></h3>
+        <h3><%= img.vote %></h3>
+        <p><%= img.description %></p>
+        <p><%= img.user_id %></p>
+        <%= link_to 'UpVote!', images_vote_path(img.id), :class => "btn btn-default btn-lg" %>
+  <%= link_to 'DownVote!', images_downvote_path(img.id), :class => "btn btn-default btn-lg" %>
+<%= link_to "delete", img, method: :delete, :class => "btn btn-default btn-lg" %>  
     </div>
     <% end %>
   <%# end %>
     
   </div>
 <!--  -->
-</div>
 <br>
 <div class="row"> 
-<% top_three = @people_images.sample(3) %>
+<% top_three = @landscape_images.first(3) %>
 
   <% top_three.each do |img| %>
     <div class='col-md-3'>
@@ -36,16 +69,18 @@
         <h3><%= img.vote %></h3>
         <p><%= img.description %></p>
         <p><%= img.user_id %></p>
+        <%= link_to 'UpVote!', images_vote_path(img.id), :class => "btn btn-default btn-lg" %>
+  <%= link_to 'DownVote!', images_downvote_path(img.id), :class => "btn btn-default btn-lg" %>
+  <%= link_to "delete", img, method: :delete, :class => "btn btn-default btn-lg" %>
     </div>
     <% end %>
   <%# end %>
     
   </div>
 <!--  -->
-</div>
 <br>
 <div class="row"> 
-<% top_three = @landscape_images.sample(3) %>
+<% top_three = @funny_images.first(3) %>
 
   <% top_three.each do |img| %>
     <div class='col-md-3'>
@@ -55,16 +90,19 @@
         <h3><%= img.vote %></h3>
         <p><%= img.description %></p>
         <p><%= img.user_id %></p>
+        <%= link_to 'UpVote!', images_vote_path(img.id), :class => "btn btn-default btn-lg" %>
+  <%= link_to 'DownVote!', images_downvote_path(img.id), :class => "btn btn-default btn-lg" %>
+  <%= link_to "delete", img, method: :delete, :class => "btn btn-default btn-lg" %>
     </div>
     <% end %>
   <%# end %>
     
   </div>
 <!--  -->
-</div>
+
 <br>
 <div class="row"> 
-<% top_three = @funny_images.sample(3) %>
+<% top_three = @abstract_images.first(3) %>
 
   <% top_three.each do |img| %>
     <div class='col-md-3'>
@@ -74,25 +112,9 @@
         <h3><%= img.vote %></h3>
         <p><%= img.description %></p>
         <p><%= img.user_id %></p>
-    </div>
-    <% end %>
-  <%# end %>
-    
-  </div>
-<!--  -->
-</div>
-<br>
-<div class="row"> 
-<% top_three = @abstract_images.sample(3) %>
-
-  <% top_three.each do |img| %>
-    <div class='col-md-3'>
-        <h2><%= img.title %></h2>
-        <h6><%= link_to image_tag(img.url), image_path(img) %></h6>
-        <h3><%= img.categories %></h3>
-        <h3><%= img.vote %></h3>
-        <p><%= img.description %></p>
-        <p><%= img.user_id %></p>
+        <%= link_to 'UpVote!', images_vote_path(img.id), :class => "btn btn-default btn-lg" %>
+  <%= link_to 'DownVote!', images_downvote_path(img.id), :class => "btn btn-default btn-lg" %>
+  <%= link_to "delete", img, method: :delete, :class => "btn btn-default btn-lg" %>
     </div>
     <% end %>
   <%# end %>

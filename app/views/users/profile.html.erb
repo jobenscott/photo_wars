@@ -1,0 +1,13 @@
+<h1>My Profile</h1>
+<h2><%= @user.name %></h2>
+<h3><%= @user.email %></h3>
+<p>
+  <%= @user.bio %>
+</p>
+
+<%= button_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary", method: :get%>
+
+<h3>My Links</h3>
+<% @user.images.each do |img| %>
+  <p><%= link_to img.title, image_path(img) %></p>
+<% end %>

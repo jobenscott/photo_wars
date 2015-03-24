@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20150321221953_add_column_to_images.rb
