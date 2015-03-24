@@ -39,6 +39,22 @@ class CommentsController < ApplicationController
     else
       redirect_to @image, notice: "Nope"
     end
+      render :back
+    end 
+  end
+
+  # def edit
+  #   @comment = Comment.edit(comments_params)
+  # end
+
+  # def update
+  #   @comment = Comment.update(comments_params)
+  #     redirect_to image_path(@image), :notice = "comment updated"
+  # end
+
+  def destroy
+    @comment.destroy
+    redirect_to :back, notice: "comment deleted"
   end
 
 
